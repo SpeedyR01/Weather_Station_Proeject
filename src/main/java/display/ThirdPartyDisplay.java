@@ -3,19 +3,12 @@ package display;
 import observer.Observer;
 import subject.WeatherData;
 
-/**
- * Display de terceros - Ejemplo de cómo otros desarrolladores pueden crear sus propios displays
- * Este display muestra información personalizada basada en las mediciones
- */
 public class ThirdPartyDisplay implements Observer, DisplayElement {
     private double temperature;
     private double humidity;
     private WeatherData weatherData;
     
-    /**
-     * Constructor
-     * @param weatherData referencia al sujeto WeatherData
-     */
+
     public ThirdPartyDisplay(WeatherData weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
@@ -62,9 +55,7 @@ public class ThirdPartyDisplay implements Observer, DisplayElement {
         System.out.println("Recomendación: " + getRecommendation(temperature, humidity));
     }
     
-    /**
-     * Genera una recomendación basada en las condiciones
-     */
+
     private String getRecommendation(double temp, double hum) {
         if (temp > 30 && hum > 70) {
             return "Evitar actividad física intensa. Mantenerse hidratado.";
